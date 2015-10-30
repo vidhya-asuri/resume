@@ -1,38 +1,59 @@
 var work = {
-  "company" :"Galmont-SQS USA",
-  "role" :"Test automation engineer/Quality Assurance engineer",
-  "location": "Lexington, KY",
-  "tech" : "HPQC,Python,PHP,HTML,Javascript",
-  "methodology" : "Agile/Scrum"
+   workHistory: [
+     {
+       "company" : "Galmont-SQS USA",
+       "dates" : "July 2014 - Current",
+       "role": "Test automation engineer/Quality Assutrance engineer",
+       "myLocation": "Kentucky, USA",
+       "description": "Create and run test scripts,test cases.Develop intranet website for interviewing and reviewing new employees"
+     },
+     {
+       "company" : "Signal Solutions, LLC",
+       "dates" : "June 2013 - July 2014",
+       "role": "System administrator,Web developer",
+       "myLocation": "Kentucky, USA",
+       "description": "Implement website using HTML/CSS/PHP; Write MATLAB scripts to analyze mouse EEG data;Set up and run experiments to validate and debug issues with company products."
+     },
+     {
+       "company" : "Tata Consultancy Services",
+       "dates" : "December 2004 - June 2005",
+       "role": "Software engineer",
+       "myLocation": "Chennai, India",
+       "description": "Create and run shell scripts to monitor performance and activity of utilities designed to collect status of various bond markets."
+     },
+     {
+       "company" : "Flint Hills Scientific, LLC",
+       "dates" : "June 2001 - June 2004",
+       "role": "Software engineer",
+       "myLocation": "Chennai, India",
+       "description": "Implement alogirthms using MFC/C++;write MATLAB scripts for digital signal processing.   "
+     }
+  ]
 };
 
-$(".work-entry").append(work["company"]);
-$(".work-entry").append(work["role"]);
-$(".work-entry").append(work["location"]);
-$(".work-entry").append(work["tech"]);
-$(".work-entry").append(work["methodology"]);
 
-/*
-    <div id="header" class="center-content clearfix">
-      <ul id="topContacts" class='flex-box'></ul>
-    </div>
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
-    </div>
-    <div id="projects">
-      <h2>Projects</h2>
-    </div>
-    <div id="education" class='gray'>
-      <h2>Education</h2>
-    </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-  </div>
-*/
+var workHistory = work['workHistory'];
+var locations=[];
+function displayWork(){
+  for(job in work.workHistory)
+  {
+    $("#workExperience").append(HTMLworkStart);
+    var employer = HTMLworkEmployer.replace("%data%",work.workHistory[job].company);
+    var title = HTMLworkTitle.replace("%data%",work.workHistory[job].role);
+    var employerPlusTitle = employer + title; 
+    $(".work-entry:last").append(employerPlusTitle);
+
+    var date = HTMLworkDates.replace("%data%",work.workHistory[job].dates);
+    $(".work-entry:last").append(date);
+
+    var myLocation = HTMLworkLocation.replace("%data%",work.workHistory[job].myLocation);
+    $(".work-entry:last").append(myLocation);
+    locations.push(myLocation); 
+
+    var desc = HTMLworkDescription.replace("%data%",work.workHistory[job].description);
+    $(".work-entry:last").append(desc);  
+
+  }
+}
+displayWork();
+console.log(locations);
