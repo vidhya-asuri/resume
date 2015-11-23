@@ -129,6 +129,27 @@ a {
   padding-left: 0px;
 }
 
+.flex-box-skills {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+  padding-left: 0px;
+}
+
+
+.flex-box-top-contacts {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+  padding-left: 0px;
+}
+
 .center-content {
   padding-top: 2.5%;
   padding-left: 5%;
