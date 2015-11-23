@@ -122,10 +122,11 @@ a {
 .flex-box {
   display: -webkit-flex;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+  padding-left: 0px;
 }
 
 .center-content {

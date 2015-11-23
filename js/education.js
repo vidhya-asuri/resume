@@ -26,6 +26,7 @@ var education =
  };
 
 
+
 $("#education").append(HTMLschoolStart);
 
 var educationSchools  = education["schools"];
