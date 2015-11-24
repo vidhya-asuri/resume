@@ -68,7 +68,7 @@ var education =
     "display": function(){
 
       $("#education").append(HTMLschoolStart);
-      var educationSchools  = education["schools"];
+      var educationSchools  = education.schools;
 
       for(var i=0; i < educationSchools.length; i++)
       {
@@ -84,14 +84,14 @@ var education =
         $(".education-entry").append(major);
       }
       $(".education-entry").append(HTMLonlineClasses);
-      var onlineClasses  = education["onlineCourses"];
-      for(var i=0; i < onlineClasses.length; i++)
+      var onlineClasses  = education.onlineCourses;
+      for(var j=0; j < onlineClasses.length; j++)
       {
         var title = HTMLonlineTitle.replace("%data%",onlineClasses[i].title);
-        var school = HTMLonlineSchool.replace("%data%",onlineClasses[i].school);
-        $(".education-entry").append(title + school);
-        var date  = HTMLonlineDates.replace("%data%",onlineClasses[i].date);
-        $(".education-entry").append(date);
+        var onlineSchool = HTMLonlineSchool.replace("%data%",onlineClasses[i].school);
+        $(".education-entry").append(title + onlineSchool);
+        var onlineDate  = HTMLonlineDates.replace("%data%",onlineClasses[i].onlineDate);
+        $(".education-entry").append(onlineDate);
         var url  = HTMLonlineURL.replace("%data%",onlineClasses[i].url);
         $(".education-entry").append(url);
       }

@@ -26,7 +26,7 @@ var HTMLprojectImage = '<img src="%data%">';
 */
 
 
-var prjList  = projects['prjList'];
+var prjList  = projects.prjList;
 projects.display = function(){
   $("#projects").append(HTMLprojectStart);
   for(var i=0; i < prjList.length; i++)
@@ -43,6 +43,6 @@ projects.display = function(){
     var image = HTMLprojectImage.replace("%data%",prjList[i].images[0]);
     $(".project-entry:last").append(image);
   }
-}
+};
 
 projects.display();

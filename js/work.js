@@ -35,7 +35,7 @@ var work = {
   ]
 };
 
-var workHistory = work['jobs'];
+var workHistory = work.jobs;
 var locations=[];
 function displayWork(){
   for(var i = 0; i < workHistory.length; i++)

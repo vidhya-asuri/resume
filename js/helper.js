@@ -125,28 +125,8 @@ function initializeMap() {
   // <div id="map">, which is appended as part of an exercise late in the course.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
-  var educationSchools  = education["schools"];
+  var educationSchools  = education.schools;
 
-/*
-for(var i=0; i < educationSchools.length; i++)
-{
-  var school = HTMLschoolName.replace("#",educationSchools[i].url);
-  var mySchool = school.replace("%data%",educationSchools[i].name);
-  $(".education-entry").append(mySchool);
-
-  var degree = HTMLschoolDegree.replace("%data%",educationSchools[i].degree);
-  $(".education-entry").append(degree);
-
-  var city  = HTMLschoolLocation.replace("%data%",educationSchools[i].location);
-  $(".education-entry").append(city);
-
-  var date = HTMLschoolDates.replace("%data%",educationSchools[i].dates);
-  $(".education-entry").append(date);
-
-  var major = HTMLschoolMajor.replace("%data%",educationSchools[i].major);
-  $(".education-entry").append(major);
-}
-*/
   /*
   locationFinder() returns an array of every location string from the JSONs
   written for bio, education, and work.
@@ -241,11 +221,14 @@ for(var i=0; i < educationSchools.length; i++)
     var service = new google.maps.places.PlacesService(map);
 
     // Iterates through the array of locations, creates a search object for each location
-    for (var place in locations) {
-
+    
+    //for (var place in locations) {
+    for (var p = 0; p < locations.length; p++) {
+      
       // the search request object
       var request = {
-        query: locations[place]
+        query: locations[p]
+        //query: locations[place]
       };
 
       // Actually searches the Google Maps API for location data and runs the callback
