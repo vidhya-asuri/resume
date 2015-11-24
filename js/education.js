@@ -90,7 +90,7 @@ var education =
         var title = HTMLonlineTitle.replace("%data%",onlineClasses[i].title);
         var onlineSchool = HTMLonlineSchool.replace("%data%",onlineClasses[i].school);
         $(".education-entry").append(title + onlineSchool);
-        var onlineDate  = HTMLonlineDates.replace("%data%",onlineClasses[i].onlineDate);
+        var onlineDate  = HTMLonlineDates.replace("%data%",onlineClasses[i].date);
         $(".education-entry").append(onlineDate);
         var url  = HTMLonlineURL.replace("%data%",onlineClasses[i].url);
         $(".education-entry").append(url);
