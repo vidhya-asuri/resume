@@ -1,19 +1,3 @@
-/*
-schools: array of objects with
-     name: string
-     location: string
-     degree: string
-     majors: array of strings
-     dates: integer (graduation date)
-     url: string
-onlineCourses: array of objects with
-     title: string
-     school: string
-     date: integer (date finished)
-     url: string
-display: function
-*/
-
 var education =
   {
     "schools" : [
@@ -82,11 +66,40 @@ var education =
 
     ],
     "display": function(){
+
+      $("#education").append(HTMLschoolStart);
+      var educationSchools  = education["schools"];
+
+      for(var i=0; i < educationSchools.length; i++)
+      {
+        var school = HTMLschoolName.replace("#",educationSchools[i].url);
+        var mySchool = school.replace("%data%",educationSchools[i].name);
+        var degree = HTMLschoolDegree.replace("%data%",educationSchools[i].degree);
+        $(".education-entry").append(mySchool + degree);
+        var city  = HTMLschoolLocation.replace("%data%",educationSchools[i].location);
+        $(".education-entry").append(city);
+        var date = HTMLschoolDates.replace("%data%",educationSchools[i].dates);
+        $(".education-entry").append(date);
+        var major = HTMLschoolMajor.replace("%data%",educationSchools[i].major);
+        $(".education-entry").append(major);
+      }
+      $(".education-entry").append(HTMLonlineClasses);
+      var onlineClasses  = education["onlineCourses"];
+      for(var i=0; i < onlineClasses.length; i++)
+      {
+        var title = HTMLonlineTitle.replace("%data%",onlineClasses[i].title);
+        var school = HTMLonlineSchool.replace("%data%",onlineClasses[i].school);
+        $(".education-entry").append(title + school);
+        var date  = HTMLonlineDates.replace("%data%",onlineClasses[i].date);
+        $(".education-entry").append(date);
+        var url  = HTMLonlineURL.replace("%data%",onlineClasses[i].url);
+        $(".education-entry").append(url);
+      }
     } 
 
  };
 
-
+/*
 $("#education").append(HTMLschoolStart);
 
 var educationSchools  = education["schools"];
@@ -127,6 +140,7 @@ for(var i=0; i < onlineClasses.length; i++)
   var url  = HTMLonlineURL.replace("%data%",onlineClasses[i].url);
   $(".education-entry").append(url);
 }
+*/
 
 /*
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
@@ -142,3 +156,6 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 */
+
+
+education.display(); 
