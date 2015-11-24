@@ -49,7 +49,7 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
+var HTMLonlineClasses = '<h3 class="online-classes">Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
@@ -125,7 +125,28 @@ function initializeMap() {
   // <div id="map">, which is appended as part of an exercise late in the course.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
+  var educationSchools  = education["schools"];
 
+/*
+for(var i=0; i < educationSchools.length; i++)
+{
+  var school = HTMLschoolName.replace("#",educationSchools[i].url);
+  var mySchool = school.replace("%data%",educationSchools[i].name);
+  $(".education-entry").append(mySchool);
+
+  var degree = HTMLschoolDegree.replace("%data%",educationSchools[i].degree);
+  $(".education-entry").append(degree);
+
+  var city  = HTMLschoolLocation.replace("%data%",educationSchools[i].location);
+  $(".education-entry").append(city);
+
+  var date = HTMLschoolDates.replace("%data%",educationSchools[i].dates);
+  $(".education-entry").append(date);
+
+  var major = HTMLschoolMajor.replace("%data%",educationSchools[i].major);
+  $(".education-entry").append(major);
+}
+*/
   /*
   locationFinder() returns an array of every location string from the JSONs
   written for bio, education, and work.
@@ -137,13 +158,13 @@ function initializeMap() {
 
     // adds the single location property from bio to the locations array
     //locations.push(bio.contacts.location);
-    locations.push(bio.location);
+    locations.push(bio.contacts.location);
 
     // iterates through school locations and appends each location to
     // the locations array
-    for (var school in education.schools) {
-      locations.push(education.schools[school].city);
-      //locations.push(education.schools[school].location);
+    for(var i=0; i < educationSchools.length; i++)
+    {
+      locations.push(educationSchools[i].location);
     }
 
     // iterates through work locations and appends each location to

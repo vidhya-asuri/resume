@@ -46,7 +46,7 @@ var bio = {
   "contacts" : contacts,
   "biopic" : "images/vid-logo.svg",
   "welcomeMessage" : "Hi! I'm a web developer living and working in Lexington, KY",
-  "letsConnect" : "Please email me with your enquiries/questions!",
+  "letsConnect" : "",
   "skills" : skills,
   "display" : display 
 };
@@ -58,7 +58,8 @@ var mobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
 var email = HTMLemail.replace("%data%",bio.contacts.email);
 var github = HTMLgithub.replace("%data%",bio.contacts.github);
 var twitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
-var letsConnect = HTMLlocation.replace("%data%",bio.letsConnect);
+var letsConnect = HTMLlocation.replace("%data%",bio.contacts.location);
+var myLocation = letsConnect.replace("Contact me!","location");
 var welcomeMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
 var bioPic = HTMLbioPic.replace("%data%",bio.biopic);
 
@@ -90,4 +91,7 @@ if(bio.hasOwnProperty("skills")){
   }
 }
 
-$("#footerContacts").append(letsConnect);
+$("#footerContacts").append(myLocation);
+$("#footerContacts").prepend(mobile);
+$("#footerContacts").append(email);
+$("#footerContacts").append(github);

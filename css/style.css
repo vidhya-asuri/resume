@@ -140,7 +140,7 @@ a {
 }
 
 
-.flex-box-top-contacts {
+.flex-box-contacts {
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
@@ -149,6 +149,11 @@ a {
   padding: 10px;
   padding-left: 0px;
 }
+
+.online-classes {
+  padding-left: 0px;
+}
+
 
 .center-content {
   padding-top: 2.5%;
