@@ -36,7 +36,7 @@ var education =
       {
         "name" : "Annamalai University",
         "location" : "India",
-        "degree" : "BE",
+        "degree" : "Bachelor of Engg.",
         "major" : "Elec. Engg.",
         "dates" : "1992-1996",
         "url" : "http://www.annamalaiuniversity.ac.in"
@@ -87,8 +87,6 @@ var education =
  };
 
 
-
-
 $("#education").append(HTMLschoolStart);
 
 var educationSchools  = education["schools"];
@@ -98,10 +96,9 @@ for(var i=0; i < educationSchools.length; i++)
 {
   var school = HTMLschoolName.replace("#",educationSchools[i].url);
   var mySchool = school.replace("%data%",educationSchools[i].name);
-  $(".education-entry").append(mySchool);
 
   var degree = HTMLschoolDegree.replace("%data%",educationSchools[i].degree);
-  $(".education-entry").append(degree);
+  $(".education-entry").append(mySchool + degree);
 
   var city  = HTMLschoolLocation.replace("%data%",educationSchools[i].location);
   $(".education-entry").append(city);
@@ -120,10 +117,9 @@ var onlineClasses  = education["onlineCourses"];
 for(var i=0; i < onlineClasses.length; i++)
 {
   var title = HTMLonlineTitle.replace("%data%",onlineClasses[i].title);
-  $(".education-entry").append(title);
 
   var school = HTMLonlineSchool.replace("%data%",onlineClasses[i].school);
-  $(".education-entry").append(school);
+  $(".education-entry").append(title + school);
 
   var date  = HTMLonlineDates.replace("%data%",onlineClasses[i].date);
   $(".education-entry").append(date);
