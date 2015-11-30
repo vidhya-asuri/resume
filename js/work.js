@@ -32,32 +32,24 @@ var work = {
        "url": "http://www.fhs.lawrence.ks.us/",
        "description": "Implement alogirthms using MFC/C++;write MATLAB scripts for digital signal processing.   "
      }
-  ]
-};
-
-var workHistory = work.jobs;
-var locations=[];
-function displayWork(){
-  for(var i = 0; i < workHistory.length; i++)
-  {
-    $("#workExperience").append(HTMLworkStart);
-    var employer = HTMLworkEmployer.replace("%data%",workHistory[i].company);
-    employer = employer.replace("#",workHistory[i].url);
-    var title = HTMLworkTitle.replace("%data%",workHistory[i].role);
-    var employerPlusTitle = employer + title; 
-    $(".work-entry:last").append(employerPlusTitle);
-
-    var date = HTMLworkDates.replace("%data%",workHistory[i].dates);
-    $(".work-entry:last").append(date);
-
-    var myLocation = HTMLworkLocation.replace("%data%",workHistory[i].myLocation);
-    $(".work-entry:last").append(myLocation);
-    locations.push(myLocation); 
-
-    var desc = HTMLworkDescription.replace("%data%",workHistory[i].description);
-    $(".work-entry:last").append(desc);  
-
+  ],
+  "displayWork" : function(){
+     for(var i = 0; i < this.jobs.length; i++)
+     {
+       $("#workExperience").append(HTMLworkStart);
+       var employer = HTMLworkEmployer.replace("%data%",this.jobs[i].company);
+       employer = employer.replace("#",this.jobs[i].url);
+       var title = HTMLworkTitle.replace("%data%",this.jobs[i].role);
+       var employerPlusTitle = employer + title;
+       $(".work-entry:last").append(employerPlusTitle);
+       var date = HTMLworkDates.replace("%data%",this.jobs[i].dates);
+       $(".work-entry:last").append(date);
+       var myLocation = HTMLworkLocation.replace("%data%",this.jobs[i].myLocation);
+       $(".work-entry:last").append(myLocation);
+       //locations.push(myLocation);
+       var desc = HTMLworkDescription.replace("%data%",this.jobs[i].description);
+       $(".work-entry:last").append(desc);
+     } 
   }
-}
-displayWork();
-console.log(locations);
+};
+work.displayWork();

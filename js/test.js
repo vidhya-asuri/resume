@@ -1,4 +1,6 @@
-function getRelationship(x, y) {
+var relationship = {
+
+  "getRelationship" : function getRelationship(x, y) {
     var xchk = false, ychk=false;
     var retVal = "";
     if((Number.isInteger(x)) && (x !== undefined) && (!isNaN(x)) )
@@ -39,18 +41,19 @@ function getRelationship(x, y) {
     }
     
     return retVal;
-}
+  }
+};
     
-var rval =  getRelationship(1,4);   
+var rval =  relationship.getRelationship(1,4);   
 // Try logging these functions to test your code!
 console.log("hello");
 console.log(rval);
-console.log(getRelationship(1,1));
-console.log(getRelationship("that",2));
-console.log(getRelationship("this"," something else"));
-console.log(getRelationship(3));
-console.log(getRelationship("hi"));
-console.log(getRelationship(NaN));
-console.log(getRelationship(NaN, undefined));
+console.log(relationship.getRelationship(1,1));
+console.log(relationship.getRelationship("that",2));
+console.log(relationship.getRelationship("this"," something else"));
+console.log(relationship.getRelationship(3));
+console.log(relationship.getRelationship("hi"));
+console.log(relationship.getRelationship(NaN));
+console.log(relationship.getRelationship(NaN, undefined));
    
 
