@@ -1,7 +1,21 @@
+/*
+name : string
+role : string
+contacts : an object with
+      mobile: string
+      email: string 
+      github: string
+      twitter: string 
+      location: string
+welcomeMessage: string 
+skills: array of strings
+biopic: url
+display: function
+*/
+
 var bio = {
   "name" :"Vidhya Asuri",
   "role" :"Web Developer",
-  "email": "vid.sigsoln@gmail.com",
   "contacts" : {
                 "mobile" : "703-964-6274",
                 "email" : "vid.sigsoln@gmail.com",
@@ -9,10 +23,9 @@ var bio = {
                 "twitter" : "",
                 "location" : "Lexington, KY"
                },
-  "biopic" : "images/vid-logo.svg",
   "welcomeMessage" : "Hi! I'm a web developer living and working in Lexington, KY",
-  "letsConnect" : "",
   "skills" : ["Web development", "PHP","Javascript","Python(Intermediate level)"],
+  "biopic" : "images/vid-logo.svg",
   "display" : function(){
 
     var contact = HTMLcontactGeneric.replace("%contact%", "Location");

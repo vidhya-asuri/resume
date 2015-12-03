@@ -1,17 +1,28 @@
+/*
+projects: array of objects with
+      title: string 
+      dates: string (works with a hyphen between them)
+      description: string
+      images: array with string urls
+display: function
+
+*/
+
+
 var projects = {
    "prjList": [
      {
        "title" : "Profile page",
-       "tech" : "HTML/CSS/Javascript",
+       //"tech" : "HTML/CSS/Javascript",
        "description": "Page containing projects i have worked on.",
-       "dates_worked": "Sep 2015",
+       "dates": "Sep 2015",
        "images": ["./images/vid-logo.svg"]
      },
      {
        "title" : "Online resume",
-       "tech" : "HTML/CSS/Javascript",
+       //"tech" : "HTML/CSS/Javascript",
        "description": "Page containing an online version of my resume.",
-       "dates_worked": "Sep 2015",
+       "dates": "Sep 2015",
        "images": ["./images/vid-logo.svg"]
      },
   ],
@@ -21,7 +32,7 @@ var projects = {
     {
       var title = HTMLprojectTitle.replace("%data%",this.prjList[i].title);
       $(".project-entry:last").append(title);
-      var date = HTMLprojectDates.replace("%data%",this.prjList[i].dates_worked);
+      var date = HTMLprojectDates.replace("%data%",this.prjList[i].dates);
       $(".project-entry:last").append(date);
       var desc = HTMLprojectDescription.replace("%data%",this.prjList[i].description);
       $(".project-entry:last").append(desc);

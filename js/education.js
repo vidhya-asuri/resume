@@ -5,7 +5,7 @@ var education =
         "name" : "Udacity",
         "location" : "California, USA",
         "degree" : "Front End Web developer",
-        "major" : "Front end web development",
+        "majors" : ["Front end web development"],
         "dates" : "2015-2016",
         "url" : "http://www.udacity.com"
       },
@@ -13,7 +13,7 @@ var education =
         "name" : "University of Kansas",
         "location" : "Kansas, USA",
         "degree" : "Masters",
-        "major" : "Elec. Engg.",
+        "majors" : ["Elec. Engg."],
         "dates" : "1998-2000",
         "url" : "http://www.ku.edu"
       },
@@ -21,7 +21,7 @@ var education =
         "name" : "Annamalai University",
         "location" : "India",
         "degree" : "Bachelor of Engg.",
-        "major" : "Elec. Engg.",
+        "majors" : ["Elec. Engg."],
         "dates" : "1992-1996",
         "url" : "http://www.annamalaiuniversity.ac.in"
       }
@@ -68,7 +68,7 @@ var education =
     "display": function(){
 
       $("#education").append(HTMLschoolStart);
-      var educationSchools  = education.schools;
+      var educationSchools  = this.schools;
 
       for(var i=0; i < educationSchools.length; i++)
       {
@@ -80,8 +80,12 @@ var education =
         $(".education-entry").append(city);
         var date = HTMLschoolDates.replace("%data%",educationSchools[i].dates);
         $(".education-entry").append(date);
-        var major = HTMLschoolMajor.replace("%data%",educationSchools[i].major);
-        $(".education-entry").append(major);
+        var majors = educationSchools[i].majors;
+        for(var m = 0; m < majors.length; m++)
+        {
+          var major = HTMLschoolMajor.replace("%data%",majors[m]);
+          $(".education-entry").append(major); 
+        }
       }
       $(".education-entry").append(HTMLonlineClasses);
       var onlineClasses  = education.onlineCourses;
